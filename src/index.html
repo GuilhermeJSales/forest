@@ -27,45 +27,64 @@
       <a href="">
         <img src="./img/forest.svg" alt="Forest" />
       </a>
-      <nav>
-        <ul class="flex flex-wrap gap-8 text-xl text-white">
-          <li>
+      <nav  id="mobile-menu" class="z-40 hidden lg:block  items-center max-lg:fixed max-lg:w-full max-lg:inset-0">
+        <div class="fixed lg:hidden inset-0 bg-verde-950/40  backdrop-blur-md"></div>
+        <ul class="max-lg:divide-y-2 max-lg:divide-white/10 max-lg:z-50 max-lg:absolute max-lg:p-8 max-lg:w-full lg:text-xl lg:flex  lg:flex-wrap lg:gap-8 text-2xl text-white">
+          <li class="animate-slide-in opacity-0 animate-1">
             <a
-              class="hover:underline hover:underline-offset-8"
+              class=" p-4 lg:px-0 lg:py-2 block max-lg:hover:bg-white/10 lg:hover:underline lg:hover:underline-offset-8"
               href="#acomodacoes"
               >Acomodações</a
             >
           </li>
-          <li>
-            <a class="hover:underline hover:underline-offset-8" href="#eventos"
+          <li class="animate-slide-in opacity-0 animate-2">
+            <a class="p-4 lg:px-0 lg:py-2 block max-lg:hover:bg-white/10 lg:hover:underline lg:hover:underline-offset-8" href="#eventos"
               >Eventos</a
             >
           </li>
-          <li>
+          <li class="animate-slide-in opacity-0 animate-3">
             <a
-              class="hover:underline hover:underline-offset-8"
+              class="p-4 lg:px-0 lg:py-2 block max-lg:hover:bg-white/10 lg:hover:underline lg:hover:underline-offset-8"
               href="#experiencias"
               >Experiências</a
             >
           </li>
-          <li>
-            <a class="hover:underline hover:underline-offset-8" href="#contato"
+          <li class="animate-slide-in opacity-0 animate-4">
+            <a class="p-4 lg:px-0 lg:py-2 block max-lg:hover:bg-white/10 lg:hover:underline lg:hover:underline-offset-8" href="#contato"
               >Contato</a
             >
           </li>
         </ul>
       </nav>
+
+      <button id="mobile-button" class="flex items-center gap-3  px-4 py-2 bg-verde-400 text-verde-900 rounded-full lg:hidden">Menu
+        <span class="h-3 w-4  flex flex-col justify-between *:h-0.5 *:rounded-md *:bg-verde-800 ">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
     </header>
 
     <main class="container">
       <div
         class="relative overflow-hidden rounded-2xl bg-gradient-to-t from-verde-950/80 px-8 pb-8 pt-64 text-white max-sm:px-4 max-sm:pt-12"
       >
-        <img
+        <!-- <img
           class="absolute inset-0 -z-10 size-full object-cover"
           src="./img/floresta.jpg"
           alt=""
-        />
+        /> -->
+        <video 
+        id="video"
+        class="absolute inset-0 -z-10 size-full object-cover animate-fade-in" 
+        autoplay
+        muted
+        playsinline
+        loop
+        width="1280"
+        height="720"
+        src="./img/video_chuva.mp4"></video>
         <div
           class="mb-8 flex flex-col items-start gap-2 rounded-xl bg-verde-950/60 p-4 sm:inline-flex sm:flex-row sm:items-center sm:gap-8 sm:rounded-full sm:bg-verde-950 sm:py-1 sm:pl-4 sm:pr-1"
         >
@@ -524,5 +543,37 @@
         </div>
 
       </footer>
+
+      <script>
+        const video = document.getElementById('video');
+        const temperatura = document.getElementById('temperatura');
+        const tempo = document.getElementById('tempo');
+        const dia = document.getElementById('dia');
+
+        const random = Math.floor(Math.random() * 10) + 20;
+        temperatura.innerText = `${random}º`
+
+        tempo.innerText = random < 25 ? `🌧️ ${random + 5}%` : `🌤️`
+
+        const date = new Date()
+        dia.innerText = date.toLocaleDateString("pt-BR", {weekday:'long'}).replace('-feira', '')
+
+        video.src = random < 25 ? `./img/video_chuva.mp4` : `./img/video_sol.mp4`;
+
+
+
+        const mobileButton = document.getElementById('mobile-button')
+        const mobileMenu = document.getElementById('mobile-menu')
+
+        mobileButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle("hidden");
+          mobileMenu.classList.toggle("flex")
+        })
+
+        mobileMenu.addEventListener('click', () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex")
+        })
+      </script>
   </body>
 </html>
