@@ -802,16 +802,14 @@ video {
   gap: 2rem;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .divide-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(2px * var(--tw-divide-x-reverse));
   border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
-}
-
-.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-y-reverse: 0;
-  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
-  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
 }
 
 .divide-verde-800 > :not([hidden]) ~ :not([hidden]) {
@@ -963,14 +961,14 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pb-4 {
@@ -1182,6 +1180,11 @@ video {
   transition-duration: 150ms;
 }
 
+.hover\:text-verde-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(145 238 119 / var(--tw-text-opacity, 1));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -1235,6 +1238,18 @@ video {
     margin-bottom: 1rem;
   }
 
+  .max-sm\:flex-col {
+    flex-direction: column;
+  }
+
+  .max-sm\:flex-col-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .max-sm\:gap-4 {
+    gap: 1rem;
+  }
+
   .max-sm\:divide-y-2 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1281,12 +1296,20 @@ video {
     flex-direction: row;
   }
 
+  .sm\:flex-col {
+    flex-direction: column;
+  }
+
   .sm\:items-center {
     align-items: center;
   }
 
   .sm\:gap-8 {
     gap: 2rem;
+  }
+
+  .sm\:gap-4 {
+    gap: 1rem;
   }
 
   .sm\:rounded-full {
@@ -1313,6 +1336,10 @@ video {
 
   .sm\:p-8 {
     padding: 2rem;
+  }
+
+  .sm\:p-12 {
+    padding: 3rem;
   }
 
   .sm\:py-1 {
@@ -1382,6 +1409,10 @@ video {
 
   .lg\:grid-cols-\[2fr_3fr\] {
     grid-template-columns: 2fr 3fr;
+  }
+
+  .lg\:justify-self-end {
+    justify-self: end;
   }
 
   .lg\:p-8 {
